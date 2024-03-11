@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>
+        {% block title %}
+        Мой сайт
+        {% endblock %}
+    </title>
+</head>
+<body>
+{% block content %}
+<h1>Название Сайта</h1>
+<a href="#">Главная</a>
+<a href="contacts">Контакты</a>
+<a href="about">О нас</a>
+
+
+<p>
+<ul>
+    <li><a href="boots">Обувь</a></li>
+    <li><a href="trousers">Брюки</a></li>
+    <li><a href="jackets">Куртки</a></li>
+
+</ul>
+
+</p>
+{% endblock %}
+<hr>
+<p>Все права защищены</p>
+
+</body>
+</html>

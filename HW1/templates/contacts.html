@@ -1,0 +1,25 @@
+{% extends 'index.html' %}
+
+{% block title %}
+{{super() }} - {{ conts.title }}
+{% endblock %}
+
+{% block content %}
+<h1>Контакты</h1>
+<a href="../">Главная</a>
+<a href="../about">О нас</a>
+<p>
+<table border="solid">
+    <tr>
+            <th>Почта</th>
+            <th>Телефон</th>
+            <th>Факс</th>
+            <th>Адрес</th>
+        <tr>
+    <td>{{conts.mail}}</td><td>{{conts.phone}}</td><td>{{conts.fax}}</td><td>{{conts.address}}</td>
+        </tr>
+    </tr>
+</table>
+
+</p>
+{% endblock %}
