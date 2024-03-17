@@ -13,7 +13,7 @@ conts = {
 }
 @app.route('/')
 def index():
-    return render_template('index.html')
+    return render_template('index2.html')
 @app.route('/contacts/')
 def contacts():
     return render_template('contacts.html', conts = conts)
