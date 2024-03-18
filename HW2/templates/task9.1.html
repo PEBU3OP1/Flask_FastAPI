@@ -1,0 +1,15 @@
+{% extends 'task9.html' %}
+
+{% block title %}
+<title>Del cookie</title>
+{% endblock %}
+
+
+{% block desc %}
+<h1>Привет, {{cont.login}}</h1>
+<h1>Твой мейл {{cont.email}}</h1>
+
+<form action="/logout" method="post">
+    <input type="submit" value="Выйти">
+</form>
+{% endblock %}
