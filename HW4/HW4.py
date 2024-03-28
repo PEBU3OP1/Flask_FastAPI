@@ -15,36 +15,65 @@ import random
 import threading
 import time
 import multiprocessing
+import asyncio
 
-
-def ar_sum():
-    summary = 0
-    for _ in range(1_000_000):
-        summary = summary + random.randint(1,100)
-    print(summary)
-    return
+# def ar_sum():
+#     summary = 0
+#     for _ in range(1_000_000):
+#         summary = summary + random.randint(1,100)
+#     # print(summary)
+#     return
 
 #################Syncr######################
-start_syncr = time.time()
-for i in range(4):
-    ar_sum()
-print(f'Syncr {time.time() - start_syncr }')
+# start_syncr = time.time()
+# for i in range(4):
+#     ar_sum()
+# print(f'Syncr {time.time() - start_syncr }')
 
 
 #################Threads######################
-threads = []
+# threads = []
+#
+#
+# start_threads = time.time()
+# for _ in range(4):
+#     t = threading.Thread(target=ar_sum)
+#     threads.append(t)
+#     t.start()
+#
+# for t in threads:
+#     t.join()
+# print(f'Threads {time.time() - start_threads }')
 
 
-start_threads = time.time()
-for i in range(4):
-    t = threading.Thread(target=ar_sum)
-    threads.append(t)
-    t.start()
+#################Multiprocessing######################
+# if __name__ == '__main__':
+#
+#     multiprocess = []
+#
+#     start_multiproc = time.time()
+#     for _ in range(4):
+#         p = multiprocessing.Process(target=ar_sum)
+#         multiprocess.append(p)
+#         p.start()
+#
+#     for p in multiprocess:
+#         p.join()
+#
+#     print(f'Multiprocess {time.time() - start_multiproc }')
 
-for t in threads:
-    t.join()
-print(f'Threads {time.time() - start_threads }')
+#################Async######################
+async def ar_sum1():
+    summary = 0
+    for _ in range(1_000_000):
+        summary = summary + random.randint(1,100)
+    # print(summary)
+    return
 
-
-
-
+async def main():
+    for _ in range(4):
+        asyncio.create_task(ar_sum1())
+if __name__ == '__main__':
+    start_async = time.time()
+    asyncio.run(main())
+    print(time.time() - start_async)
